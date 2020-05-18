@@ -13,6 +13,14 @@
             borderWidth
             padding
             margin
+	    logoWidth
+	    logoHeight
+	    image
+	    imageSize
+	    textX
+	    textY
+      imageX
+      imageY
             lastUpdate
         }
 	    logo(id: "5e93943599d3a5247923dfc5") {
@@ -25,6 +33,14 @@
             borderWidth
             padding
             margin
+	    logoWidth
+	    logoHeight
+	    image
+	    imageSize
+	    textX
+	    textY
+      imageX
+      imageY
             lastUpdate
 
     }	 
@@ -41,7 +57,15 @@ mutation {
     borderRadius: 1,
     borderWidth: 1,
     padding: 1,
-    margin: 1
+    margin: 1,
+    logoWidth: 1,
+    logoHeight: 1,
+    image: "",
+    imageSize: 2,
+    textX: 1,
+    textY: 1,
+    imageX: 1,
+    imageY: 1
   ) {
     _id
     text
@@ -50,9 +74,17 @@ mutation {
     backgroundColor
     borderColor
     borderRadius
-  	borderWidth
+    borderWidth
     padding
     margin
+    logoWidth
+    logoHeight
+    image
+    imageSize
+    textX
+    textY
+    imageX
+    imageY
     lastUpdate
   }
 
@@ -68,7 +100,15 @@ mutation {
     borderRadius: 1,
     borderWidth: 1,
     padding: 1,
-    margin: 1
+    margin: 1,
+    logoWidth: 1,
+    logoHeight: 1,
+    image: "",
+    imageSize: 2,
+    textX: 1,
+    textY: 1,
+    imageX: 1,
+    imageY: 1
   ) {
     _id
     text
@@ -77,9 +117,17 @@ mutation {
     backgroundColor
     borderColor
     borderRadius
-  	borderWidth
+    borderWidth
     padding
     margin
+    logoWidth
+    logoHeight
+    image
+    imageSize
+    textX
+    textY
+    imageX
+    imageY
     lastUpdate
   }
 
@@ -98,7 +146,15 @@ mutation {
     borderRadius: 1,
     borderWidth: 1,
     padding: 1,
-    margin: 1
+    margin: 1,
+    logoWidth: 1,
+    logoHeight: 1,
+    image: "",
+    imageSize: 2,
+    textX: 1,
+    textY: 1,
+    imageX: 1,
+    imageY: 1
   ) {
     _id
     text
@@ -107,9 +163,17 @@ mutation {
     backgroundColor
     borderColor
     borderRadius
-  	borderWidth
+    borderWidth
     padding
     margin
+    logoWidth
+    logoHeight
+    image
+    imageSize
+    textX
+    textY
+    imageX
+    imageY
     lastUpdate
   }
 }
@@ -124,9 +188,17 @@ mutation {
     backgroundColor
     borderColor
     borderRadius
-  	borderWidth
+    borderWidth
     padding
     margin
+    logoWidth
+    logoHeight
+    image
+    imageSize
+    textX
+    textY
+    imageX
+    imageY
     lastUpdate
   }
 }
