@@ -55,7 +55,7 @@ class RegisterScreen extends Component {
                 </div>
                 <div className="col s8">
                     <div id="home_banner_container">
-                        @todo
+                        GoLogoLo
                         <br />
                         Register
                     </div>
