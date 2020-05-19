@@ -164,6 +164,9 @@ class EditLogoScreen extends Component {
                                             <button>
                                                 <Link to="/">Home</Link>
                                             </button>
+                                            <button>
+                                                <Link to="/login">Log Out</Link>
+                                            </button>
                                             <h3 className="panel-title">Edit Logo</h3>
                                         </div>
                                         <div className="row">

@@ -9,7 +9,49 @@ class RegisterScreen extends Component {
         return (
             <div className="container row">
                 <div className="col s4">
-                    <h3>Recent Work</h3>
+                    <div className="form-group">
+                        <label htmlFor="text">First Name:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="firstName"
+                            //onChange={this.handleEditLogoText}
+                            //value={this.state.text}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="text">Last Name:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="lastName"
+                            //onChange={this.handleEditLogoText}
+                            //value={this.state.text}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="text">Email:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="email"
+                            //onChange={this.handleEditLogoText}
+                            //value={this.state.text}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <label htmlFor="text">Password:</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            name="password"
+                            //onChange={this.handleEditLogoText}
+                            //value={this.state.text}
+                        />
+                    </div>
                 </div>
                 <div className="col s8">
                     <div id="home_banner_container">
@@ -18,12 +60,12 @@ class RegisterScreen extends Component {
                         Register
                     </div>
                     <button>
-                        <Link id="add_logo_button" to="/create">
+                        <Link id="register_button" to="/login">
                             Register
                         </Link>
                     </button>
                     <button>
-                        <Link id="log_out_button" to="/create">
+                        <Link id="cancel_button" to="/login">
                             Cancel
                         </Link>
                     </button>

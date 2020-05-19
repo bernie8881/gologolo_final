@@ -24,7 +24,7 @@ ReactDOM.render(
                 <Route path="/edit/:id" component={EditLogoScreen} />
                 <Route path="/create" component={CreateLogoScreen} />
                 <Route path="/view/:id" component={ViewLogoScreen} />
-                <Route path="/login/:id" component={LoginScreen} />
+                <Route path="/login/" component={LoginScreen} />
                 <Route path="/register" component={RegisterScreen} />
             </div>
         </Router>

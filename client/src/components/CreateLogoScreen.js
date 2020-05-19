@@ -117,6 +117,9 @@ class CreateLogoScreen extends Component {
                                 <button>
                                     <Link to="/">Home</Link>
                                 </button>
+                                <button>
+                                    <Link to="/login">Log Out</Link>
+                                </button>
                                 <h3 className="panel-title">Create Logo</h3>
                             </div>
                             <div className="row">
@@ -163,7 +166,7 @@ class CreateLogoScreen extends Component {
                                     </button>
                                     <button type="submit" className="btn btn-success">
                                         {" "}
-                                        Remove Textx
+                                        Remove Text
                                     </button>
                                     <div className="form-group">
                                         <label htmlFor="color">Color:</label>
@@ -282,6 +285,29 @@ class CreateLogoScreen extends Component {
                                             //value={this.state.margin}
                                         />
                                     </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="text">Text:</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="text"
+                                            //onChange={this.handleEditLogoText}
+                                            //value={this.state.text}
+                                        />
+                                    </div>
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Add Text
+                                    </button>
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Edit Text
+                                    </button>
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Remove Text
+                                    </button>
 
                                     <button type="submit" className="btn btn-success">
                                         Submit
