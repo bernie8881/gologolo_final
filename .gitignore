@@ -5,6 +5,7 @@
 /client/db
 /server/node_modules
 /server/db
+/node_modules
 /.pnp
 .pnp.js
 
