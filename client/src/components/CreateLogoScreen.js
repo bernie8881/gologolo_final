@@ -153,7 +153,18 @@ class CreateLogoScreen extends Component {
                                         <label htmlFor="text">Text:</label>
                                         <input type="text" className="form-control" name="text" onChange={this.handleEditLogoText} value={this.state.text} />
                                     </div>
-
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Add Text
+                                    </button>
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Edit Text
+                                    </button>
+                                    <button type="submit" className="btn btn-success">
+                                        {" "}
+                                        Remove Textx
+                                    </button>
                                     <div className="form-group">
                                         <label htmlFor="color">Color:</label>
                                         <input type="color" className="form-control" name="color" onChange={this.handleColorChange} value={this.state.color} />
@@ -243,6 +254,32 @@ class CreateLogoScreen extends Component {
                                             max="100"
                                             onChange={this.handleMarginChange}
                                             value={this.state.margin}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="margin">Logo Width:</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            name="Logo Width"
+                                            min="0.01"
+                                            max="100"
+                                            //onChange={this.handleMarginChange}
+                                            //value={this.state.margin}
+                                        />
+                                    </div>
+
+                                    <div className="form-group">
+                                        <label htmlFor="margin">Logo Height:</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            name="Logo Height"
+                                            min="0.01"
+                                            max="100"
+                                            //onChange={this.handleMarginChange}
+                                            //value={this.state.margin}
                                         />
                                     </div>
 
