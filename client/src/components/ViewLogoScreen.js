@@ -91,6 +91,10 @@ class ViewLogoScreen extends Component {
                                                         <button type="submit" className="btn btn-danger">
                                                             Delete
                                                         </button>
+                                                        &nbsp;
+                                                        <button type="submit" className="btn btn-primary">
+                                                            Export
+                                                        </button>
                                                     </form>
                                                     {loading && <p>Loading...</p>}
                                                     {error && <p>Error :( Please try again</p>}
