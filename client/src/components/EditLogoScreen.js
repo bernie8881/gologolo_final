@@ -211,7 +211,20 @@ class EditLogoScreen extends Component {
                                                             value={this.state.text}
                                                         />
                                                     </div>
-
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Add Text
+                                                    </button>
+                                                    &nbsp;
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Edit Text
+                                                    </button>
+                                                    &nbsp;
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Remove Text
+                                                    </button>
                                                     <div className="form-group">
                                                         <label htmlFor="color">Color:</label>
                                                         <input
@@ -222,7 +235,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.color}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="fontSize">Font Size:</label>
                                                         <input
@@ -235,7 +247,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.fontSize}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="backgroundColor">Background Color:</label>
                                                         <input
@@ -246,7 +257,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.backgroundColor}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="borderColor">Border Color:</label>
                                                         <input
@@ -257,7 +267,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.borderColor}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="borderRadius">Border Radius:</label>
                                                         <input
@@ -270,7 +279,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.borderRadius}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="borderWidth">Border Width:</label>
                                                         <input
@@ -283,7 +291,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.borderWidth}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="padding">Padding:</label>
                                                         <input
@@ -296,7 +303,6 @@ class EditLogoScreen extends Component {
                                                             value={this.state.padding}
                                                         />
                                                     </div>
-
                                                     <div className="form-group">
                                                         <label htmlFor="margin">Margin:</label>
                                                         <input
@@ -309,10 +315,71 @@ class EditLogoScreen extends Component {
                                                             value={this.state.margin}
                                                         />
                                                     </div>
-
-                                                    <button type="submit" className="btn btn-success">
-                                                        Submit
+                                                    <div className="form-group">
+                                                        <label htmlFor="logoWidth">Logo Width:</label>
+                                                        <input
+                                                            type="number"
+                                                            className="form-control"
+                                                            name="logoWidth"
+                                                            min="0.01"
+                                                            max="100"
+                                                            //onChange={this.handleMarginChange}
+                                                            //value={this.state.margin}
+                                                        />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="logoHeight">Logo Height:</label>
+                                                        <input
+                                                            type="number"
+                                                            className="form-control"
+                                                            name="logoHeight"
+                                                            min="0.01"
+                                                            max="100"
+                                                            //onChange={this.handleMarginChange}
+                                                            //value={this.state.margin}
+                                                        />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="imageSource">Image Source:</label>
+                                                        <input
+                                                            type="text"
+                                                            className="form-control"
+                                                            name="imageSource"
+                                                            //onChange={this.handleEditLogoText}
+                                                            //value={this.state.text}
+                                                        />
+                                                    </div>
+                                                    <div className="form-group">
+                                                        <label htmlFor="imageSizeMultiplier">Image Size Multiplier:</label>
+                                                        <input
+                                                            type="number"
+                                                            className="form-control"
+                                                            name="imageSizeMultiplier"
+                                                            min="1"
+                                                            max="100"
+                                                            //onChange={this.handleFontSizeChange}
+                                                            //value={this.state.fontSize}
+                                                        />
+                                                    </div>
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Add Image
                                                     </button>
+                                                    &nbsp;
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Delete Image
+                                                    </button>
+                                                    &nbsp;
+                                                    <button type="submit" className="btn btn-info">
+                                                        {" "}
+                                                        Edit Image Size
+                                                    </button>
+                                                    <div className="form-group">
+                                                        <button type="submit" className="btn btn-success">
+                                                            Submit
+                                                        </button>
+                                                    </div>
                                                 </form>
                                                 {loading && <p>Loading...</p>}
                                                 {error && <p>Error :( Please try again</p>}
