@@ -3,12 +3,12 @@
 # dependencies
 /client/node_modules
 /client/db
+/db
 /server/node_modules
 /server/db
 /node_modules
 /.pnp
 .pnp.js
-/db
 
 # testing
 /coverage
