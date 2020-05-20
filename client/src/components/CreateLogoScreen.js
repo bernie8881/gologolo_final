@@ -109,6 +109,11 @@ class CreateLogoScreen extends Component {
         this.setState({ height: event.target.value });
     };
 
+    addText = (event) => {
+        console.log("Added Text " + event.target.value);
+        //append text to array
+    };
+
     confirmEditLogoText = () => {
         if (/\S/.test(this.state.text)) {
             // string is not empty and not just whitespace
@@ -173,11 +178,11 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group">
                                         <label htmlFor="text">Text:</label>
                                         <input type="text" className="form-control" name="text" onChange={this.handleEditLogoText} value={this.state.text} />
+                                        <button onClick={this.addText} type="button" className="btn btn-info">
+                                            {" "}
+                                            Add Text
+                                        </button>
                                     </div>
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                        {" "}
-                                        Add Text
-                                    </button>
                                     &nbsp;
                                     <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
@@ -203,6 +208,54 @@ class CreateLogoScreen extends Component {
                                             onChange={this.handleFontSizeChange}
                                             value={this.state.fontSize}
                                         />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="imageSource">Image Source:</label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            name="imageSource"
+                                            //onChange={this.handleEditLogoText}
+                                            //value={this.state.text}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="imageSizeMultiplier">Image Size Multiplier:</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            name="imageSizeMultiplier"
+                                            min="1"
+                                            max="100"
+                                            //onChange={this.handleFontSizeChange}
+                                            //value={this.state.fontSize}
+                                        />
+                                    </div>
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                        {" "}
+                                        Add Image
+                                    </button>
+                                    &nbsp;
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                        {" "}
+                                        Delete Image
+                                    </button>
+                                    &nbsp;
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                        {" "}
+                                        Edit Image Size
+                                    </button>
+                                    <div className="form-group">
+                                        <label htmlFor="Reordering">Reordering:</label>
+                                        <button onClick={console.log("Up!")} type="button" className="btn btn-info">
+                                            {" "}
+                                            ↑
+                                        </button>
+                                        &nbsp;
+                                        <button onClick={console.log("Down!")} type="button" className="btn btn-info">
+                                            {" "}
+                                            ↓
+                                        </button>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="backgroundColor">Background Color:</label>
@@ -296,42 +349,6 @@ class CreateLogoScreen extends Component {
                                             value={this.state.height}
                                         />
                                     </div>
-                                    <div className="form-group">
-                                        <label htmlFor="imageSource">Image Source:</label>
-                                        <input
-                                            type="text"
-                                            className="form-control"
-                                            name="imageSource"
-                                            //onChange={this.handleEditLogoText}
-                                            //value={this.state.text}
-                                        />
-                                    </div>
-                                    <div className="form-group">
-                                        <label htmlFor="imageSizeMultiplier">Image Size Multiplier:</label>
-                                        <input
-                                            type="number"
-                                            className="form-control"
-                                            name="imageSizeMultiplier"
-                                            min="1"
-                                            max="100"
-                                            //onChange={this.handleFontSizeChange}
-                                            //value={this.state.fontSize}
-                                        />
-                                    </div>
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                        {" "}
-                                        Add Image
-                                    </button>
-                                    &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                        {" "}
-                                        Delete Image
-                                    </button>
-                                    &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                        {" "}
-                                        Edit Image Size
-                                    </button>
                                     <div className="form-group">
                                         <button type="submit" className="btn btn-success">
                                             Submit
