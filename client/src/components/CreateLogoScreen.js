@@ -15,8 +15,8 @@ const ADD_LOGO = gql`
         $borderWidth: Int!
         $padding: Int!
         $margin: Int!
-        $logoWidth: Int!
-        $logoHeight: Int!
+        $width: Int!
+        $height: Int!
     ) {
         addLogo(
             text: $text
@@ -28,8 +28,8 @@ const ADD_LOGO = gql`
             padding: $padding
             margin: $margin
             fontSize: $fontSize
-            logoWidth: $logoWidth
-            logoHeight: $logoHeight
+            width: $width
+            height: $height
         ) {
             _id
         }
@@ -49,8 +49,8 @@ class CreateLogoScreen extends Component {
             borderWidth: 2,
             padding: 2,
             margin: 2,
-            logoWidth: 2,
-            logoHeight: 2,
+            width: 2,
+            height: 2,
         };
     }
 
@@ -99,14 +99,14 @@ class CreateLogoScreen extends Component {
         this.setState({ fontSize: event.target.value });
     };
 
-    handleLogoWidthChange = (event) => {
-        console.log("handleLogoWidthChange to " + event.target.value);
-        this.setState({ logoWidth: event.target.value });
+    handleWidthChange = (event) => {
+        console.log("handleWidthChange to " + event.target.value);
+        this.setState({ width: event.target.value });
     };
 
-    handleLogoHeightChange = (event) => {
-        console.log("handleLogoHeightChange to " + event.target.value);
-        this.setState({ logoHeight: event.target.value });
+    handleHeightChange = (event) => {
+        console.log("handleHeightChange to " + event.target.value);
+        this.setState({ height: event.target.value });
     };
 
     confirmEditLogoText = () => {
@@ -123,7 +123,7 @@ class CreateLogoScreen extends Component {
     };
 
     render() {
-        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, logoWidth, logoHeight;
+        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push("/")}>
                 {(addLogo, { loading, error }) => (
@@ -154,8 +154,8 @@ class CreateLogoScreen extends Component {
                                                     borderWidth: parseInt(this.state.borderWidth),
                                                     padding: parseInt(this.state.padding),
                                                     margin: parseInt(this.state.margin),
-                                                    logoWidth: parseInt(this.state.logoWidth),
-                                                    logoHeight: parseInt(this.state.logoHeight),
+                                                    width: parseInt(this.state.width),
+                                                    height: parseInt(this.state.height),
                                                 },
                                             });
                                         }
@@ -273,27 +273,27 @@ class CreateLogoScreen extends Component {
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="logoWidth">Logo Width:</label>
+                                        <label htmlFor="width">Logo Width:</label>
                                         <input
                                             type="number"
                                             className="form-control"
-                                            name="logoWidth"
+                                            name="width"
                                             min="1"
-                                            max="100"
-                                            onChange={this.handleLogoWidthChange}
-                                            value={this.state.logoWidth}
+                                            max="1000"
+                                            onChange={this.handleWidthChange}
+                                            value={this.state.width}
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="logoHeight">Logo Height:</label>
+                                        <label htmlFor="height">Logo Height:</label>
                                         <input
                                             type="number"
                                             className="form-control"
-                                            name="logoHeight"
+                                            name="height"
                                             min="1"
-                                            max="100"
-                                            onChange={this.handleLogoHeightChange}
-                                            value={this.state.logoHeight}
+                                            max="1000"
+                                            onChange={this.handleHeightChange}
+                                            value={this.state.height}
                                         />
                                     </div>
                                     <div className="form-group">

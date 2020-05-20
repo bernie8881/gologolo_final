@@ -15,8 +15,8 @@ class TextEditWorkspace extends Component {
                 padding: this.props.logo.padding + "px",
                 margin: this.props.logo.margin + "px",
                 fontSize: this.props.logo.fontSize + "pt",
-                logoWidth: this.props.logo.logoWidth + "px",
-                logoHeight: this.props.logo.logoHeight + "px",
+                width: this.props.logo.width + "px",
+                height: this.props.logo.height + "px",
             },
         };
         return (

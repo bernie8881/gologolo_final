@@ -18,8 +18,8 @@ const GET_LOGO = gql`
             borderWidth
             padding
             margin
-            logoWidth
-            logoHeight
+            width
+            height
             lastUpdate
         }
     }
@@ -75,9 +75,9 @@ class ViewLogoScreen extends Component {
                                             <dt>Margin:</dt>
                                             <dd>{data.logo.margin}</dd>
                                             <dt>Logo Width:</dt>
-                                            <dd>{data.logo.logoWidth}</dd>
+                                            <dd>{data.logo.width}</dd>
                                             <dt>Logo Height:</dt>
-                                            <dd>{data.logo.logoHeight}</dd>
+                                            <dd>{data.logo.height}</dd>
                                             <dt>Last Updated:</dt>
                                             <dd>{data.logo.lastUpdate}</dd>
                                         </dl>

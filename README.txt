@@ -13,8 +13,8 @@
             borderWidth
             padding
             margin
-	    logoWidth
-	    logoHeight
+	    width
+	    height
 	    image
 	    imageSize
 	    textX
@@ -33,8 +33,8 @@
             borderWidth
             padding
             margin
-	    logoWidth
-	    logoHeight
+	    width
+	    height
 	    image
 	    imageSize
 	    textX
@@ -58,8 +58,8 @@ mutation {
     borderWidth: 1,
     padding: 1,
     margin: 1,
-    logoWidth: 1,
-    logoHeight: 1,
+    width: 1,
+    height: 1,
     image: "",
     imageSize: 2,
     textX: 1,
@@ -77,8 +77,8 @@ mutation {
     borderWidth
     padding
     margin
-    logoWidth
-    logoHeight
+    width
+    height
     image
     imageSize
     textX
@@ -101,8 +101,8 @@ mutation {
     borderWidth: 1,
     padding: 1,
     margin: 1,
-    logoWidth: 1,
-    logoHeight: 1,
+    width: 1,
+    height: 1,
     image: "",
     imageSize: 2,
     textX: 1,
@@ -120,8 +120,8 @@ mutation {
     borderWidth
     padding
     margin
-    logoWidth
-    logoHeight
+    width
+    height
     image
     imageSize
     textX
@@ -147,8 +147,8 @@ mutation {
     borderWidth: 1,
     padding: 1,
     margin: 1,
-    logoWidth: 1,
-    logoHeight: 1,
+    width: 1,
+    height: 1,
     image: "",
     imageSize: 2,
     textX: 1,
@@ -166,8 +166,8 @@ mutation {
     borderWidth
     padding
     margin
-    logoWidth
-    logoHeight
+    width
+    height
     image
     imageSize
     textX
@@ -191,8 +191,8 @@ mutation {
     borderWidth
     padding
     margin
-    logoWidth
-    logoHeight
+    width
+    height
     image
     imageSize
     textX
