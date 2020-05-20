@@ -15,6 +15,8 @@ const ADD_LOGO = gql`
         $borderWidth: Int!
         $padding: Int!
         $margin: Int!
+        $logoWidth: Int!
+        $logoHeight: Int!
     ) {
         addLogo(
             text: $text
@@ -26,6 +28,8 @@ const ADD_LOGO = gql`
             padding: $padding
             margin: $margin
             fontSize: $fontSize
+            logoWidth: $logoWidth
+            logoHeight: $logoHeight
         ) {
             _id
         }
@@ -45,6 +49,8 @@ class CreateLogoScreen extends Component {
             borderWidth: 2,
             padding: 2,
             margin: 2,
+            logoWidth: 2,
+            logoHeight: 2,
         };
     }
 
@@ -93,6 +99,16 @@ class CreateLogoScreen extends Component {
         this.setState({ fontSize: event.target.value });
     };
 
+    handleLogoWidthChange = (event) => {
+        console.log("handleLogoWidthChange to " + event.target.value);
+        this.setState({ logoWidth: event.target.value });
+    };
+
+    handleLogoHeightChange = (event) => {
+        console.log("handleLogoHeightChange to " + event.target.value);
+        this.setState({ logoHeight: event.target.value });
+    };
+
     confirmEditLogoText = () => {
         if (/\S/.test(this.state.text)) {
             // string is not empty and not just whitespace
@@ -107,7 +123,7 @@ class CreateLogoScreen extends Component {
     };
 
     render() {
-        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
+        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, logoWidth, logoHeight;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push("/")}>
                 {(addLogo, { loading, error }) => (
@@ -138,6 +154,8 @@ class CreateLogoScreen extends Component {
                                                     borderWidth: parseInt(this.state.borderWidth),
                                                     padding: parseInt(this.state.padding),
                                                     margin: parseInt(this.state.margin),
+                                                    logoWidth: parseInt(this.state.logoWidth),
+                                                    logoHeight: parseInt(this.state.logoHeight),
                                                 },
                                             });
                                         }
@@ -260,10 +278,10 @@ class CreateLogoScreen extends Component {
                                             type="number"
                                             className="form-control"
                                             name="logoWidth"
-                                            min="0.01"
+                                            min="1"
                                             max="100"
-                                            //onChange={this.handleMarginChange}
-                                            //value={this.state.margin}
+                                            onChange={this.handleLogoWidthChange}
+                                            value={this.state.logoWidth}
                                         />
                                     </div>
                                     <div className="form-group">
@@ -272,10 +290,10 @@ class CreateLogoScreen extends Component {
                                             type="number"
                                             className="form-control"
                                             name="logoHeight"
-                                            min="0.01"
+                                            min="1"
                                             max="100"
-                                            //onChange={this.handleMarginChange}
-                                            //value={this.state.margin}
+                                            onChange={this.handleLogoHeightChange}
+                                            value={this.state.logoHeight}
                                         />
                                     </div>
                                     <div className="form-group">

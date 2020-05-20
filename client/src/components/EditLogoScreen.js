@@ -16,6 +16,8 @@ const GET_LOGO = gql`
             borderRadius
             borderWidth
             padding
+            logoWidth
+            logoHeight
             margin
         }
     }
@@ -33,6 +35,8 @@ const UPDATE_LOGO = gql`
         $borderWidth: Int!
         $padding: Int!
         $margin: Int!
+        $logoWidth: Int!
+        $logoHeight: Int!
     ) {
         updateLogo(
             id: $id
@@ -45,6 +49,8 @@ const UPDATE_LOGO = gql`
             borderWidth: $borderWidth
             padding: $padding
             margin: $margin
+            logoWidth: $logoWidth
+            logoHeight: $logoHeight
         ) {
             lastUpdate
         }
@@ -68,6 +74,8 @@ class EditLogoScreen extends Component {
             borderWidth: 2,
             padding: 2,
             margin: 2,
+            logoWidth: 2,
+            logoHeight: 2,
             gotData: false,
         };
     }
@@ -119,6 +127,16 @@ class EditLogoScreen extends Component {
         this.setState({ fontSize: event.target.value });
     };
 
+    handleLogoWidthChange = (event) => {
+        console.log("handleLogoWidthChange to " + event.target.value);
+        this.setState({ logoWidth: event.target.value });
+    };
+
+    handleLogoHeightChange = (event) => {
+        console.log("handleLogoHeightChange to " + event.target.value);
+        this.setState({ logoHeight: event.target.value });
+    };
+
     confirmEditLogoText = () => {
         if (/\S/.test(this.state.text)) {
             // string is not empty and not just whitespace
@@ -133,7 +151,7 @@ class EditLogoScreen extends Component {
     };
 
     render() {
-        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin;
+        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, logoWidth, logoHeight;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -151,6 +169,8 @@ class EditLogoScreen extends Component {
                             borderWidth: parseInt(data.logo.borderWidth),
                             padding: parseInt(data.logo.padding),
                             margin: parseInt(data.logo.margin),
+                            logoWidth: parseInt(data.logo.logoWidth),
+                            logoHeight: parseInt(data.logo.logoHeight),
                             gotData: true,
                         });
                     }
@@ -187,6 +207,8 @@ class EditLogoScreen extends Component {
                                                                     borderWidth: parseInt(this.state.borderWidth),
                                                                     padding: parseInt(this.state.padding),
                                                                     margin: parseInt(this.state.margin),
+                                                                    logoWidth: parseInt(this.state.logoWidth),
+                                                                    logoHeight: parseInt(this.state.logoHeight),
                                                                 },
                                                             });
                                                         }
@@ -321,10 +343,10 @@ class EditLogoScreen extends Component {
                                                             type="number"
                                                             className="form-control"
                                                             name="logoWidth"
-                                                            min="0.01"
+                                                            min="1"
                                                             max="100"
-                                                            //onChange={this.handleMarginChange}
-                                                            //value={this.state.margin}
+                                                            onChange={this.handleLogoWidthChange}
+                                                            value={this.state.logoWidth}
                                                         />
                                                     </div>
                                                     <div className="form-group">
@@ -333,10 +355,10 @@ class EditLogoScreen extends Component {
                                                             type="number"
                                                             className="form-control"
                                                             name="logoHeight"
-                                                            min="0.01"
+                                                            min="1"
                                                             max="100"
-                                                            //onChange={this.handleMarginChange}
-                                                            //value={this.state.margin}
+                                                            onChange={this.handleLogoHeightChange}
+                                                            value={this.state.logoHeight}
                                                         />
                                                     </div>
                                                     <div className="form-group">
