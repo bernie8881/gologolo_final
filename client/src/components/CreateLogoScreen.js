@@ -49,8 +49,8 @@ class CreateLogoScreen extends Component {
             borderWidth: 2,
             padding: 2,
             margin: 2,
-            width: 2,
-            height: 2,
+            width: 200,
+            height: 200,
         };
     }
 
@@ -174,17 +174,17 @@ class CreateLogoScreen extends Component {
                                         <label htmlFor="text">Text:</label>
                                         <input type="text" className="form-control" name="text" onChange={this.handleEditLogoText} value={this.state.text} />
                                     </div>
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Add Text
                                     </button>
                                     &nbsp;
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Edit Text
                                     </button>
                                     &nbsp;
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Remove Text
                                     </button>
@@ -318,17 +318,17 @@ class CreateLogoScreen extends Component {
                                             //value={this.state.fontSize}
                                         />
                                     </div>
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Add Image
                                     </button>
                                     &nbsp;
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Delete Image
                                     </button>
                                     &nbsp;
-                                    <button type="submit" className="btn btn-info">
+                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                         {" "}
                                         Edit Image Size
                                     </button>

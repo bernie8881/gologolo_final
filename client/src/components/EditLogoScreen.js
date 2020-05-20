@@ -74,8 +74,8 @@ class EditLogoScreen extends Component {
             borderWidth: 2,
             padding: 2,
             margin: 2,
-            width: 2,
-            height: 2,
+            width: 200,
+            height: 200,
             gotData: false,
         };
     }
@@ -237,17 +237,17 @@ class EditLogoScreen extends Component {
                                                             value={this.state.text}
                                                         />
                                                     </div>
-                                                    <button onClick={this.addText} className="btn btn-info">
+                                                    <button onClick={this.addText} type="button" className="btn btn-info">
                                                         {" "}
                                                         Add Text
                                                     </button>
                                                     &nbsp;
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                                         {" "}
                                                         Edit Text
                                                     </button>
                                                     &nbsp;
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
                                                         {" "}
                                                         Remove Text
                                                     </button>
@@ -387,17 +387,17 @@ class EditLogoScreen extends Component {
                                                             //value={this.state.fontSize}
                                                         />
                                                     </div>
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={console.log("Add Image!")} type="button" className="btn btn-info">
                                                         {" "}
                                                         Add Image
                                                     </button>
                                                     &nbsp;
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={console.log("Delete Image!")} type="button" className="btn btn-info">
                                                         {" "}
                                                         Delete Image
                                                     </button>
                                                     &nbsp;
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={console.log("Edit Image!")} type="button" className="btn btn-info">
                                                         {" "}
                                                         Edit Image Size
                                                     </button>

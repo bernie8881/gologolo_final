@@ -98,7 +98,7 @@ class ViewLogoScreen extends Component {
                                                             Delete
                                                         </button>
                                                         &nbsp;
-                                                        <button type="submit" className="btn btn-primary">
+                                                        <button onClick={console.log("button click!")} type="button" className="btn btn-primary">
                                                             Export
                                                         </button>
                                                     </form>
