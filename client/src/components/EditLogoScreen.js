@@ -137,6 +137,10 @@ class EditLogoScreen extends Component {
         this.setState({ height: event.target.value });
     };
 
+    addText = (event) => {
+        console.log("Added Text " + event.target.value);
+    };
+
     confirmEditLogoText = () => {
         if (/\S/.test(this.state.text)) {
             // string is not empty and not just whitespace
@@ -233,7 +237,7 @@ class EditLogoScreen extends Component {
                                                             value={this.state.text}
                                                         />
                                                     </div>
-                                                    <button type="submit" className="btn btn-info">
+                                                    <button onClick={this.addText} className="btn btn-info">
                                                         {" "}
                                                         Add Text
                                                     </button>
