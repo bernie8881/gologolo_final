@@ -17,7 +17,8 @@
 	    width
 	    height
 	    image
-	    imageSize
+	    imageWidth
+      imageHeight
 	    textX
 	    textY
       imageX
@@ -30,6 +31,8 @@
             color
             fontSize
             image
+            imageWidth
+            imageHeight
             backgroundColor
             borderColor
             borderRadius
@@ -39,7 +42,8 @@
 	    width
 	    height
 	    image
-	    imageSize
+	    imageWidth
+      imageHeight
 	    textX
 	    textY
       imageX
@@ -57,6 +61,8 @@ mutation {
     color: "#ff33dd",
     fontSize: 44,
     image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
+    imageWidth: 300,
+    imageHeight: 100,
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -65,8 +71,6 @@ mutation {
     margin: 1,
     width: 200,
     height: 100,
-    image: "",
-    imageSize: 2,
     textX: 1,
     textY: 1,
     imageX: 1,
@@ -78,6 +82,8 @@ mutation {
     color
     fontSize
     image
+    imageWidth
+    imageHeight
     backgroundColor
     borderColor
     borderRadius
@@ -86,8 +92,6 @@ mutation {
     margin
     width
     height
-    image
-    imageSize
     textX
     textY
     imageX
@@ -104,6 +108,8 @@ mutation {
     color: "#ff33dd",
     fontSize: 44,
     image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
+    imageWidth: 300,
+    imageHeight: 100,
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -112,8 +118,6 @@ mutation {
     margin: 1,
     width: 200,
     height: 200,
-    image: "",
-    imageSize: 2,
     textX: 1,
     textY: 1,
     imageX: 1,
@@ -125,6 +129,8 @@ mutation {
     color
     fontSize
     image
+    imageWidth
+    imageHeight
     backgroundColor
     borderColor
     borderRadius
@@ -133,8 +139,6 @@ mutation {
     margin
     width
     height
-    image
-    imageSize
     textX
     textY
     imageX
@@ -154,6 +158,8 @@ mutation {
     color: "#ffeedd",
     fontSize: 32,
     image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
+    imageWidth: 500,
+    imageHeight: 150,
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -162,8 +168,6 @@ mutation {
     margin: 1,
     width: 200,
     height: 200,
-    image: "",
-    imageSize: 2,
     textX: 1,
     textY: 1,
     imageX: 1,
@@ -175,6 +179,8 @@ mutation {
     color
     fontSize
     image
+    imageWidth
+    imageHeight
     backgroundColor
     borderColor
     borderRadius
@@ -183,8 +189,6 @@ mutation {
     margin
     width
     height
-    image
-    imageSize
     textX
     textY
     imageX
@@ -202,6 +206,8 @@ mutation {
     color
     fontSize
     image
+    imageWidth
+    imageHeight
     backgroundColor
     borderColor
     borderRadius
@@ -210,8 +216,6 @@ mutation {
     margin
     width
     height
-    image
-    imageSize
     textX
     textY
     imageX

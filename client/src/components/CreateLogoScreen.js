@@ -12,6 +12,8 @@ const ADD_LOGO = gql`
         $color: String!
         $fontSize: Int!
         $image: String!
+        $imageWidth: Int!
+        $imageHeight: Int!
         $backgroundColor: String!
         $borderColor: String!
         $borderRadius: Int!
@@ -27,6 +29,8 @@ const ADD_LOGO = gql`
             color: $color
             fontSize: $fontSize
             image: $image
+            imageWidth: $imageWidth
+            imageHeight: $imageHeight
             backgroundColor: $backgroundColor
             borderColor: $borderColor
             borderRadius: $borderRadius
@@ -50,6 +54,8 @@ class CreateLogoScreen extends Component {
             color: "#33df20",
             fontSize: 20,
             image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
+            imageWidth: 100,
+            imageHeight: 100,
             backgroundColor: "#227d69",
             borderColor: "#ffff66",
             borderRadius: 2,
@@ -140,9 +146,14 @@ class CreateLogoScreen extends Component {
         //append image to array
     };
 
-    handleEditImageSize = (event) => {
-        console.log("Image resized to " + event.target.value);
-        //this.setState({ text: event.target.value });
+    handleEditImageWidth = (event) => {
+        console.log("Image Width to " + event.target.value);
+        this.setState({ imageWidth: event.target.value });
+    };
+
+    handleEditImageHeight = (event) => {
+        console.log("Image Height to " + event.target.value);
+        this.setState({ imageHeight: event.target.value });
     };
 
     handleDeleteImage = (event) => {
@@ -184,7 +195,21 @@ class CreateLogoScreen extends Component {
 
     render() {
         //const dragHandlers = { onStart: this.onStart };
-        let text, texts, color, fontSize, image, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        let text,
+            texts,
+            color,
+            fontSize,
+            image,
+            imageWidth,
+            imageHeight,
+            backgroundColor,
+            borderColor,
+            borderRadius,
+            borderWidth,
+            padding,
+            margin,
+            width,
+            height;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push("/")}>
                 {(addLogo, { loading, error }) => (
@@ -211,6 +236,8 @@ class CreateLogoScreen extends Component {
                                                     color: this.state.color,
                                                     fontSize: parseInt(this.state.fontSize),
                                                     image: this.state.image,
+                                                    imageWidth: parseInt(this.state.imageWidth),
+                                                    imageHeight: parseInt(this.state.imageHeight),
                                                     backgroundColor: this.state.backgroundColor,
                                                     borderColor: this.state.borderColor,
                                                     borderRadius: parseInt(this.state.borderRadius),
@@ -279,15 +306,27 @@ class CreateLogoScreen extends Component {
                                         />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="imageSizeMultiplier">Image Size Multiplier:</label>
+                                        <label htmlFor="imageWidth">Image Width:</label>
                                         <input
                                             type="number"
                                             className="form-control"
-                                            name="imageSizeMultiplier"
+                                            name="imageWidth"
                                             min="1"
-                                            max="100"
-                                            //onChange={this.handleFontSizeChange}
-                                            //value={this.state.fontSize}
+                                            max="1000"
+                                            onChange={this.handleEditImageWidth}
+                                            value={this.state.imageWidth}
+                                        />
+                                    </div>
+                                    <div className="form-group">
+                                        <label htmlFor="imageHeight">Image Height:</label>
+                                        <input
+                                            type="number"
+                                            className="form-control"
+                                            name="imageHeight"
+                                            min="1"
+                                            max="1000"
+                                            onChange={this.handleEditImageHeight}
+                                            value={this.state.imageHeight}
                                         />
                                     </div>
                                     <button onClick={this.handleAddImageButton} type="button" className="btn btn-info">
@@ -300,7 +339,7 @@ class CreateLogoScreen extends Component {
                                         Delete Image
                                     </button>
                                     &nbsp;
-                                    <button onClick={this.handleEditImageSize} type="button" className="btn btn-info">
+                                    <button onClick={this.handleAddImageButton} type="button" className="btn btn-info">
                                         {" "}
                                         Edit Image Size
                                     </button>

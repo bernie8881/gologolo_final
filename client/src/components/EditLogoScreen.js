@@ -13,6 +13,8 @@ const GET_LOGO = gql`
             color
             fontSize
             image
+            imageWidth
+            imageHeight
             backgroundColor
             borderColor
             borderRadius
@@ -33,6 +35,8 @@ const UPDATE_LOGO = gql`
         $color: String!
         $fontSize: Int!
         $image: String!
+        $imageWidth: Int!
+        $imageHeight: Int!
         $backgroundColor: String!
         $borderColor: String!
         $borderRadius: Int!
@@ -49,6 +53,8 @@ const UPDATE_LOGO = gql`
             color: $color
             fontSize: $fontSize
             image: $image
+            imageWidth: $imageWidth
+            imageHeight: $imageHeight
             backgroundColor: $backgroundColor
             borderColor: $borderColor
             borderRadius: $borderRadius
@@ -76,6 +82,8 @@ class EditLogoScreen extends Component {
             color: "#33df20",
             fontSize: 20,
             image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
+            imageWidth: 100,
+            imageHeight: 100,
             backgroundColor: "#227d69",
             borderColor: "#ffff66",
             borderRadius: 2,
@@ -162,10 +170,19 @@ class EditLogoScreen extends Component {
         this.setState({ image: event.target.value });
     };
 
-    handleEditImageSize = (event) => {
-        console.log("Image resized to " + event.target.value);
-        //this.setState({ text: event.target.value });
-        this.setState({ image: event.target.value });
+    handleAddImageButton = (event) => {
+        console.log("Added Image from " + event.target.value);
+        //append image to array
+    };
+
+    handleEditImageWidth = (event) => {
+        console.log("Image Width to " + event.target.value);
+        this.setState({ imageWidth: event.target.value });
+    };
+
+    handleEditImageHeight = (event) => {
+        console.log("Image Height to " + event.target.value);
+        this.setState({ imageHeight: event.target.value });
     };
 
     handleDeleteImage = (event) => {
@@ -207,7 +224,21 @@ class EditLogoScreen extends Component {
     };
 
     render() {
-        let text, texts, color, fontSize, image, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        let text,
+            texts,
+            color,
+            fontSize,
+            image,
+            imageWidth,
+            imageHeight,
+            backgroundColor,
+            borderColor,
+            borderRadius,
+            borderWidth,
+            padding,
+            margin,
+            width,
+            height;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -221,6 +252,8 @@ class EditLogoScreen extends Component {
                             color: data.logo.color,
                             fontSize: parseInt(data.logo.fontSize),
                             image: data.logo.image,
+                            imageWidth: parseInt(data.logo.imageWidth),
+                            imageHeight: parseInt(data.logo.imageHeight),
                             backgroundColor: data.logo.backgroundColor,
                             borderColor: data.logo.borderColor,
                             borderRadius: parseInt(data.logo.borderRadius),
@@ -261,6 +294,8 @@ class EditLogoScreen extends Component {
                                                                     color: this.state.color,
                                                                     fontSize: parseInt(this.state.fontSize),
                                                                     image: this.state.image,
+                                                                    imageWidth: parseInt(this.state.imageWidth),
+                                                                    imageHeight: parseInt(this.state.imageHeight),
                                                                     backgroundColor: this.state.backgroundColor,
                                                                     borderColor: this.state.borderColor,
                                                                     borderRadius: parseInt(this.state.borderRadius),
@@ -347,18 +382,30 @@ class EditLogoScreen extends Component {
                                                         />
                                                     </div>
                                                     <div className="form-group">
-                                                        <label htmlFor="imageSizeMultiplier">Image Size Multiplier:</label>
+                                                        <label htmlFor="imageWidth">Image Width:</label>
                                                         <input
                                                             type="number"
                                                             className="form-control"
-                                                            name="imageSizeMultiplier"
+                                                            name="imageWidth"
                                                             min="1"
-                                                            max="100"
-                                                            //onChange={this.handleFontSizeChange}
-                                                            //value={this.state.fontSize}
+                                                            max="1000"
+                                                            onChange={this.handleEditImageWidth}
+                                                            value={this.state.imageWidth}
                                                         />
                                                     </div>
-                                                    <button onClick={this.handleAddImage} type="button" className="btn btn-info">
+                                                    <div className="form-group">
+                                                        <label htmlFor="imageHeight">Image Height:</label>
+                                                        <input
+                                                            type="number"
+                                                            className="form-control"
+                                                            name="imageHeight"
+                                                            min="1"
+                                                            max="1000"
+                                                            onChange={this.handleEditImageHeight}
+                                                            value={this.state.imageHeight}
+                                                        />
+                                                    </div>
+                                                    <button onClick={this.handleAddImageButton} type="button" className="btn btn-info">
                                                         {" "}
                                                         Add Image
                                                     </button>
@@ -368,7 +415,7 @@ class EditLogoScreen extends Component {
                                                         Delete Image
                                                     </button>
                                                     &nbsp;
-                                                    <button onClick={this.handleEditImageSize} type="button" className="btn btn-info">
+                                                    <button onClick={this.handleAddImageButton} type="button" className="btn btn-info">
                                                         {" "}
                                                         Edit Image Size
                                                     </button>

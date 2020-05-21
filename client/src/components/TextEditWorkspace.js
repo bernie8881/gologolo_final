@@ -19,12 +19,14 @@ class TextEditWorkspace extends Component {
                 width: this.props.logo.width + "px",
                 height: this.props.logo.height + "px",
                 image: this.props.logo.image,
+                imageWidth: this.props.logo.imageWidth,
+                imageHeight: this.props.logo.imageHeight,
             },
         };
         return (
             <div className="col s8" style={{ overflow: "auto" }}>
                 <div style={styles.container}>{this.props.logo.text}</div>
-                <img src={this.props.logo.image}></img>
+                <img src={this.props.logo.image} width={this.props.logo.imageWidth} height={this.props.logo.imageHeight}></img>
             </div>
         );
     }
