@@ -39,16 +39,16 @@ const DELETE_LOGO = gql`
 
 class ViewLogoScreen extends Component {
     exportLogo = (event) => {
-        console.log("Added Text " + event.target.value);
-        if (window.navigator.msSaveBlob) {
-            window.navigator.msSaveBlob(event.data.msToBlob(), "logo.png");
-        } else {
-            const a = document.createElement("a");
-            document.appendChild(a);
-            a.href = event.data.toDataURL();
-            a.download = "logo.png";
-            a.click();
-        }
+        console.log("Export! " + event.target.value);
+        // if (window.navigator.msSaveBlob) {
+        //     window.navigator.msSaveBlob(event.data.msToBlob(), "logo.png");
+        // } else {
+        //     const a = document.createElement("a");
+        //     document.appendChild(a);
+        //     a.href = event.data.toDataURL();
+        //     a.download = "logo.png";
+        //     a.click();
+        // }
     };
 
     render() {
