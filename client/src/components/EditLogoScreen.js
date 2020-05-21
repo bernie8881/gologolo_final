@@ -159,16 +159,19 @@ class EditLogoScreen extends Component {
     handleAddImage = (event) => {
         console.log("Added Image from " + event.target.value);
         //append image to array
+        this.setState({ image: event.target.value });
     };
 
     handleEditImageSize = (event) => {
         console.log("Image resized to " + event.target.value);
         //this.setState({ text: event.target.value });
+        this.setState({ image: event.target.value });
     };
 
     handleDeleteImage = (event) => {
         console.log("Deleted Text " + event.target.value);
         //pop image from array
+        this.setState({ image: event.target.value });
     };
 
     handleOrderUp = (event) => {
@@ -188,6 +191,17 @@ class EditLogoScreen extends Component {
             return true;
         } else {
             console.log("Textfield may not be empty!");
+            return false;
+        }
+    };
+
+    checkURL(url) {
+        return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+    }
+    confirmImage = () => {
+        if (this.checkURL(this.state.image)) {
+            return true;
+        } else {
             return false;
         }
     };
@@ -258,6 +272,13 @@ class EditLogoScreen extends Component {
                                                                 },
                                                             });
                                                         }
+                                                        // if (this.confirmImage()) {
+                                                        //     updateLogo({
+                                                        //         variable: {
+
+                                                        //         },
+                                                        //     });
+                                                        // }
                                                         // text.value = "";
                                                         // color.value = "";
                                                         // fontSize.value = "";
@@ -321,8 +342,8 @@ class EditLogoScreen extends Component {
                                                             type="text"
                                                             className="form-control"
                                                             name="imageSource"
-                                                            //onChange={this.handleEditLogoText}
-                                                            //value={this.state.text}
+                                                            onChange={this.handleAddImage}
+                                                            value={this.state.image}
                                                         />
                                                     </div>
                                                     <div className="form-group">

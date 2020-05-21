@@ -24,6 +24,7 @@ class TextEditWorkspace extends Component {
         return (
             <div className="col s8" style={{ overflow: "auto" }}>
                 <div style={styles.container}>{this.props.logo.text}</div>
+                <img src={this.props.logo.image}></img>
             </div>
         );
     }

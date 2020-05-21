@@ -131,6 +131,13 @@ class CreateLogoScreen extends Component {
     handleAddImage = (event) => {
         console.log("Added Image from " + event.target.value);
         //append image to array
+        if (this.checkURL(event.target.value)) {
+            this.setState({ image: event.target.value });
+        }
+    };
+    handleAddImageButton = (event) => {
+        console.log("Added Image from " + event.target.value);
+        //append image to array
     };
 
     handleEditImageSize = (event) => {
@@ -160,6 +167,17 @@ class CreateLogoScreen extends Component {
             return true;
         } else {
             console.log("Textfield may not be empty!");
+            return false;
+        }
+    };
+
+    checkURL(url) {
+        return url.match(/\.(jpeg|jpg|gif|png)$/) != null;
+    }
+    confirmImage = () => {
+        if (this.checkURL(this.state.image)) {
+            return true;
+        } else {
             return false;
         }
     };
@@ -272,7 +290,7 @@ class CreateLogoScreen extends Component {
                                             //value={this.state.fontSize}
                                         />
                                     </div>
-                                    <button onClick={this.handleAddImage} type="button" className="btn btn-info">
+                                    <button onClick={this.handleAddImageButton} type="button" className="btn btn-info">
                                         {" "}
                                         Add Image
                                     </button>
