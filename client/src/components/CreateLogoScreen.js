@@ -8,8 +8,10 @@ import Draggable, { DraggableCore } from "react-draggable"; // Both at the same 
 const ADD_LOGO = gql`
     mutation AddLogo(
         $text: String!
+        $texts: [String]!
         $color: String!
         $fontSize: Int!
+        $image: String!
         $backgroundColor: String!
         $borderColor: String!
         $borderRadius: Int!
@@ -21,14 +23,16 @@ const ADD_LOGO = gql`
     ) {
         addLogo(
             text: $text
+            texts: $texts
             color: $color
+            fontSize: $fontSize
+            image: $image
             backgroundColor: $backgroundColor
             borderColor: $borderColor
             borderRadius: $borderRadius
             borderWidth: $borderWidth
             padding: $padding
             margin: $margin
-            fontSize: $fontSize
             width: $width
             height: $height
         ) {
@@ -45,6 +49,7 @@ class CreateLogoScreen extends Component {
             texts: [],
             color: "#33df20",
             fontSize: 20,
+            image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
             backgroundColor: "#227d69",
             borderColor: "#ffff66",
             borderRadius: 2,
@@ -70,6 +75,7 @@ class CreateLogoScreen extends Component {
     handleDeleteText = (event) => {
         console.log("Deleted Text " + event.target.value);
         //append text to array
+        this.setState({ text: event.target.value });
     };
 
     handleColorChange = (event) => {
@@ -159,7 +165,8 @@ class CreateLogoScreen extends Component {
     };
 
     render() {
-        let text, texts, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        //const dragHandlers = { onStart: this.onStart };
+        let text, texts, color, fontSize, image, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push("/")}>
                 {(addLogo, { loading, error }) => (
@@ -185,6 +192,7 @@ class CreateLogoScreen extends Component {
                                                     texts: this.state.texts,
                                                     color: this.state.color,
                                                     fontSize: parseInt(this.state.fontSize),
+                                                    image: this.state.image,
                                                     backgroundColor: this.state.backgroundColor,
                                                     borderColor: this.state.borderColor,
                                                     borderRadius: parseInt(this.state.borderRadius),
@@ -248,8 +256,8 @@ class CreateLogoScreen extends Component {
                                             type="text"
                                             className="form-control"
                                             name="imageSource"
-                                            //onChange={this.handleEditLogoText}
-                                            //value={this.state.text}
+                                            onChange={this.handleAddImage}
+                                            value={this.state.image}
                                         />
                                     </div>
                                     <div className="form-group">

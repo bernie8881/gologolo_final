@@ -29,6 +29,7 @@
         texts
             color
             fontSize
+            image
             backgroundColor
             borderColor
             borderRadius
@@ -55,6 +56,7 @@ mutation {
     texts: [{ text: "Debugging Enterprises", color: "#ff33dd", fontSize: 44 }],
     color: "#ff33dd",
     fontSize: 44,
+    image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -75,6 +77,7 @@ mutation {
     texts
     color
     fontSize
+    image
     backgroundColor
     borderColor
     borderRadius
@@ -100,6 +103,7 @@ mutation {
     texts: [{ text: "Super Debugging Enterprises", color: "#ff33dd", fontSize: 44 }],
     color: "#ff33dd",
     fontSize: 44,
+    image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -120,6 +124,7 @@ mutation {
     texts
     color
     fontSize
+    image
     backgroundColor
     borderColor
     borderRadius
@@ -148,6 +153,7 @@ mutation {
     texts: [{ text: "My Very Dumb Company", color: "#ffeedd", fontSize: 32 }],
     color: "#ffeedd",
     fontSize: 32,
+    image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
     backgroundColor: "#7a8a20",
     borderColor: "#7a8a20",
     borderRadius: 1,
@@ -168,6 +174,7 @@ mutation {
     texts
     color
     fontSize
+    image
     backgroundColor
     borderColor
     borderRadius
@@ -194,6 +201,7 @@ mutation {
     texts
     color
     fontSize
+    image
     backgroundColor
     borderColor
     borderRadius

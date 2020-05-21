@@ -78,6 +78,8 @@ class ViewLogoScreen extends Component {
                                             <dd>{data.logo.color}</dd>
                                             <dt>Font Size:</dt>
                                             <dd>{data.logo.fontSize}</dd>
+                                            <dt>Image:</dt>
+                                            <dd>{data.logo.image}</dd>
                                             <dt>Background Color:</dt>
                                             <dd>{data.logo.backgroundColor}</dd>
                                             <dt>Border Color:</dt>

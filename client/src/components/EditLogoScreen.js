@@ -12,6 +12,7 @@ const GET_LOGO = gql`
             texts
             color
             fontSize
+            image
             backgroundColor
             borderColor
             borderRadius
@@ -31,6 +32,7 @@ const UPDATE_LOGO = gql`
         $texts: [String]!
         $color: String!
         $fontSize: Int!
+        $image: String!
         $backgroundColor: String!
         $borderColor: String!
         $borderRadius: Int!
@@ -46,6 +48,7 @@ const UPDATE_LOGO = gql`
             texts: $texts
             color: $color
             fontSize: $fontSize
+            image: $image
             backgroundColor: $backgroundColor
             borderColor: $borderColor
             borderRadius: $borderRadius
@@ -72,6 +75,7 @@ class EditLogoScreen extends Component {
             texts: [{ text: "GologoLo", color: "#33df20", fontSize: 20 }],
             color: "#33df20",
             fontSize: 20,
+            image: "http://www3.cs.stonybrook.edu/~cse316/images/SBUDarkRedShieldLogo.png",
             backgroundColor: "#227d69",
             borderColor: "#ffff66",
             borderRadius: 2,
@@ -99,6 +103,7 @@ class EditLogoScreen extends Component {
     handleDeleteText = (event) => {
         console.log("Deleted Text " + event.target.value);
         //append text to array
+        this.setState({ text: event.target.value });
     };
 
     handleColorChange = (event) => {
@@ -188,7 +193,7 @@ class EditLogoScreen extends Component {
     };
 
     render() {
-        let text, texts, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        let text, texts, color, fontSize, image, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -201,6 +206,7 @@ class EditLogoScreen extends Component {
                             texts: data.logo.texts,
                             color: data.logo.color,
                             fontSize: parseInt(data.logo.fontSize),
+                            image: data.logo.image,
                             backgroundColor: data.logo.backgroundColor,
                             borderColor: data.logo.borderColor,
                             borderRadius: parseInt(data.logo.borderRadius),
@@ -240,6 +246,7 @@ class EditLogoScreen extends Component {
                                                                     texts: this.state.texts,
                                                                     color: this.state.color,
                                                                     fontSize: parseInt(this.state.fontSize),
+                                                                    image: this.state.image,
                                                                     backgroundColor: this.state.backgroundColor,
                                                                     borderColor: this.state.borderColor,
                                                                     borderRadius: parseInt(this.state.borderRadius),

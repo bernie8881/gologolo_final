@@ -28,6 +28,9 @@ var logoType = new GraphQLObjectType({
             fontSize: {
                 type: GraphQLInt,
             },
+            image: {
+                type: GraphQLString,
+            },
             backgroundColor: {
                 type: GraphQLString,
             },
@@ -112,6 +115,9 @@ var mutation = new GraphQLObjectType({
                     fontSize: {
                         type: new GraphQLNonNull(GraphQLInt),
                     },
+                    image: {
+                        type: new GraphQLNonNull(GraphQLString),
+                    },
                     backgroundColor: {
                         type: new GraphQLNonNull(GraphQLString),
                     },
@@ -165,6 +171,9 @@ var mutation = new GraphQLObjectType({
                     fontSize: {
                         type: new GraphQLNonNull(GraphQLInt),
                     },
+                    image: {
+                        type: new GraphQLNonNull(GraphQLString),
+                    },
                     backgroundColor: {
                         type: new GraphQLNonNull(GraphQLString),
                     },
@@ -198,6 +207,7 @@ var mutation = new GraphQLObjectType({
                             texts: params.texts,
                             color: params.color,
                             fontSize: params.fontSize,
+                            image: params.image,
                             backgroundColor: params.backgroundColor,
                             borderColor: params.borderColor,
                             borderRadius: params.borderRadius,

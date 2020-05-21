@@ -18,6 +18,7 @@ class TextEditWorkspace extends Component {
                 fontSize: this.props.logo.fontSize + "pt",
                 width: this.props.logo.width + "px",
                 height: this.props.logo.height + "px",
+                image: this.props.logo.image,
             },
         };
         return (
