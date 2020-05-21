@@ -7,6 +7,7 @@ class TextEditWorkspace extends Component {
             container: {
                 border: "solid",
                 //text: this.props.logos.text,
+                //texts: this.props.logos.texts,
                 color: this.props.logo.color,
                 backgroundColor: this.props.logo.backgroundColor,
                 borderColor: this.props.logo.borderColor,

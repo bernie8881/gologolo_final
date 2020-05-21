@@ -9,6 +9,7 @@ const GET_LOGO = gql`
         logo(id: $logoId) {
             _id
             text
+            texts
             color
             fontSize
             backgroundColor
@@ -27,6 +28,7 @@ const UPDATE_LOGO = gql`
     mutation updateLogo(
         $id: String!
         $text: String!
+        $texts: [String]!
         $color: String!
         $fontSize: Int!
         $backgroundColor: String!
@@ -41,6 +43,7 @@ const UPDATE_LOGO = gql`
         updateLogo(
             id: $id
             text: $text
+            texts: $texts
             color: $color
             fontSize: $fontSize
             backgroundColor: $backgroundColor
@@ -66,6 +69,7 @@ class EditLogoScreen extends Component {
         super(props);
         this.state = {
             text: "GologoLo",
+            texts: [{ text: "GologoLo", color: "#33df20", fontSize: 20 }],
             color: "#33df20",
             fontSize: 20,
             backgroundColor: "#227d69",
@@ -79,12 +83,22 @@ class EditLogoScreen extends Component {
             gotData: false,
         };
     }
+    handleAddText = (event) => {
+        console.log("Added Text " + event.target.value);
+        //append text to array
+        //this.setState({ texts: Array.concat(event.target.value) });
+    };
 
     handleEditLogoText = (event) => {
         console.log("State's text was before: " + this.state.text);
         console.log("handleEditLogoText to " + event.target.value);
         console.log("State's text is now: " + this.state.text);
         this.setState({ text: event.target.value });
+    };
+
+    handleDeleteText = (event) => {
+        console.log("Deleted Text " + event.target.value);
+        //append text to array
     };
 
     handleColorChange = (event) => {
@@ -137,9 +151,27 @@ class EditLogoScreen extends Component {
         this.setState({ height: event.target.value });
     };
 
-    addText = (event) => {
-        console.log("Added Text " + event.target.value);
-        //append text to array
+    handleAddImage = (event) => {
+        console.log("Added Image from " + event.target.value);
+        //append image to array
+    };
+
+    handleEditImageSize = (event) => {
+        console.log("Image resized to " + event.target.value);
+        //this.setState({ text: event.target.value });
+    };
+
+    handleDeleteImage = (event) => {
+        console.log("Deleted Text " + event.target.value);
+        //pop image from array
+    };
+
+    handleOrderUp = (event) => {
+        console.log("Moved up " + event.target.value);
+    };
+
+    handleOrderDown = (event) => {
+        console.log("Moved down " + event.target.value);
     };
 
     confirmEditLogoText = () => {
@@ -156,7 +188,7 @@ class EditLogoScreen extends Component {
     };
 
     render() {
-        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        let text, texts, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
         return (
             <Query query={GET_LOGO} variables={{ logoId: this.props.match.params.id }}>
                 {({ loading, error, data }) => {
@@ -166,6 +198,7 @@ class EditLogoScreen extends Component {
                     if (!this.state.gotData) {
                         this.setState({
                             text: data.logo.text,
+                            texts: data.logo.texts,
                             color: data.logo.color,
                             fontSize: parseInt(data.logo.fontSize),
                             backgroundColor: data.logo.backgroundColor,
@@ -204,6 +237,7 @@ class EditLogoScreen extends Component {
                                                                 variables: {
                                                                     id: data.logo._id,
                                                                     text: this.state.text,
+                                                                    texts: this.state.texts,
                                                                     color: this.state.color,
                                                                     fontSize: parseInt(this.state.fontSize),
                                                                     backgroundColor: this.state.backgroundColor,
@@ -237,21 +271,21 @@ class EditLogoScreen extends Component {
                                                             onChange={this.handleEditLogoText}
                                                             value={this.state.text}
                                                         />
+                                                        <button onClick={this.handleAddText} type="button" className="btn btn-info">
+                                                            {" "}
+                                                            Add Text
+                                                        </button>
+                                                        &nbsp;
+                                                        <button onClick={this.handleEditLogoText} type="button" className="btn btn-info">
+                                                            {" "}
+                                                            Edit Text
+                                                        </button>
+                                                        &nbsp;
+                                                        <button onClick={this.handleDeleteText} type="button" className="btn btn-info">
+                                                            {" "}
+                                                            Remove Text
+                                                        </button>
                                                     </div>
-                                                    <button onClick={this.addText} type="button" className="btn btn-info">
-                                                        {" "}
-                                                        Add Text
-                                                    </button>
-                                                    &nbsp;
-                                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                                        {" "}
-                                                        Edit Text
-                                                    </button>
-                                                    &nbsp;
-                                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
-                                                        {" "}
-                                                        Remove Text
-                                                    </button>
                                                     <div className="form-group">
                                                         <label htmlFor="color">Color:</label>
                                                         <input
@@ -296,28 +330,28 @@ class EditLogoScreen extends Component {
                                                             //value={this.state.fontSize}
                                                         />
                                                     </div>
-                                                    <button onClick={console.log("Add Image!")} type="button" className="btn btn-info">
+                                                    <button onClick={this.handleAddImage} type="button" className="btn btn-info">
                                                         {" "}
                                                         Add Image
                                                     </button>
                                                     &nbsp;
-                                                    <button onClick={console.log("Delete Image!")} type="button" className="btn btn-info">
+                                                    <button onClick={this.handleDeleteImage} type="button" className="btn btn-info">
                                                         {" "}
                                                         Delete Image
                                                     </button>
                                                     &nbsp;
-                                                    <button onClick={console.log("Edit Image!")} type="button" className="btn btn-info">
+                                                    <button onClick={this.handleEditImageSize} type="button" className="btn btn-info">
                                                         {" "}
                                                         Edit Image Size
                                                     </button>
                                                     <div className="form-group">
                                                         <label htmlFor="Reordering">Reordering:</label>
-                                                        <button onClick={console.log("Up!")} type="button" className="btn btn-info">
+                                                        <button onClick={this.handleOrderUp} type="button" className="btn btn-info">
                                                             {" "}
                                                             ↑
                                                         </button>
                                                         &nbsp;
-                                                        <button onClick={console.log("Down!")} type="button" className="btn btn-info">
+                                                        <button onClick={this.handleOrderDown} type="button" className="btn btn-info">
                                                             {" "}
                                                             ↓
                                                         </button>

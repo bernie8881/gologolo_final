@@ -3,6 +3,7 @@ import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 import { Link } from "react-router-dom";
 import TextEditWorkspace from "./TextEditWorkspace.js";
+import Draggable, { DraggableCore } from "react-draggable"; // Both at the same time
 
 const ADD_LOGO = gql`
     mutation AddLogo(
@@ -41,6 +42,7 @@ class CreateLogoScreen extends Component {
         super(props);
         this.state = {
             text: "GologoLo",
+            texts: [],
             color: "#33df20",
             fontSize: 20,
             backgroundColor: "#227d69",
@@ -53,10 +55,21 @@ class CreateLogoScreen extends Component {
             height: 200,
         };
     }
+    handleAddText = (event) => {
+        console.log("Added Text " + event.target.value);
+        //append text to array
+        //this.setState({ texts: Array.concat(event.target.value) });
+        console.log(this.state.texts);
+    };
 
     handleEditLogoText = (event) => {
         console.log("handleEditLogoText to " + event.target.value);
         this.setState({ text: event.target.value });
+    };
+
+    handleDeleteText = (event) => {
+        console.log("Deleted Text " + event.target.value);
+        //append text to array
     };
 
     handleColorChange = (event) => {
@@ -109,9 +122,27 @@ class CreateLogoScreen extends Component {
         this.setState({ height: event.target.value });
     };
 
-    addText = (event) => {
-        console.log("Added Text " + event.target.value);
-        //append text to array
+    handleAddImage = (event) => {
+        console.log("Added Image from " + event.target.value);
+        //append image to array
+    };
+
+    handleEditImageSize = (event) => {
+        console.log("Image resized to " + event.target.value);
+        //this.setState({ text: event.target.value });
+    };
+
+    handleDeleteImage = (event) => {
+        console.log("Deleted Text " + event.target.value);
+        //pop image from array
+    };
+
+    handleOrderUp = (event) => {
+        console.log("Moved up " + event.target.value);
+    };
+
+    handleOrderDown = (event) => {
+        console.log("Moved down " + event.target.value);
     };
 
     confirmEditLogoText = () => {
@@ -128,7 +159,7 @@ class CreateLogoScreen extends Component {
     };
 
     render() {
-        let text, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
+        let text, texts, color, fontSize, backgroundColor, borderColor, borderRadius, borderWidth, padding, margin, width, height;
         return (
             <Mutation mutation={ADD_LOGO} onCompleted={() => this.props.history.push("/")}>
                 {(addLogo, { loading, error }) => (
@@ -151,6 +182,7 @@ class CreateLogoScreen extends Component {
                                             addLogo({
                                                 variables: {
                                                     text: this.state.text,
+                                                    texts: this.state.texts,
                                                     color: this.state.color,
                                                     fontSize: parseInt(this.state.fontSize),
                                                     backgroundColor: this.state.backgroundColor,
@@ -178,18 +210,19 @@ class CreateLogoScreen extends Component {
                                     <div className="form-group">
                                         <label htmlFor="text">Text:</label>
                                         <input type="text" className="form-control" name="text" onChange={this.handleEditLogoText} value={this.state.text} />
-                                        <button onClick={this.addText} type="button" className="btn btn-info">
+
+                                        <button onClick={this.handleAddText} type="button" className="btn btn-info">
                                             {" "}
                                             Add Text
                                         </button>
                                     </div>
                                     &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                    <button onClick={this.handleEditLogoText} type="button" className="btn btn-info">
                                         {" "}
                                         Edit Text
                                     </button>
                                     &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                    <button onClick={this.handleDeleteText} type="button" className="btn btn-info">
                                         {" "}
                                         Remove Text
                                     </button>
@@ -231,28 +264,28 @@ class CreateLogoScreen extends Component {
                                             //value={this.state.fontSize}
                                         />
                                     </div>
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                    <button onClick={this.handleAddImage} type="button" className="btn btn-info">
                                         {" "}
                                         Add Image
                                     </button>
                                     &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                    <button onClick={this.handleDeleteImage} type="button" className="btn btn-info">
                                         {" "}
                                         Delete Image
                                     </button>
                                     &nbsp;
-                                    <button onClick={console.log("button click!")} type="button" className="btn btn-info">
+                                    <button onClick={this.handleEditImageSize} type="button" className="btn btn-info">
                                         {" "}
                                         Edit Image Size
                                     </button>
                                     <div className="form-group">
                                         <label htmlFor="Reordering">Reordering:</label>
-                                        <button onClick={console.log("Up!")} type="button" className="btn btn-info">
+                                        <button onClick={this.handleOrderUp} type="button" className="btn btn-info">
                                             {" "}
                                             ↑
                                         </button>
                                         &nbsp;
-                                        <button onClick={console.log("Down!")} type="button" className="btn btn-info">
+                                        <button onClick={this.handleOrderDown} type="button" className="btn btn-info">
                                             {" "}
                                             ↓
                                         </button>

@@ -10,6 +10,7 @@ const GET_LOGO = gql`
         logo(id: $logoId) {
             _id
             text
+            texts
             color
             fontSize
             backgroundColor
@@ -71,6 +72,8 @@ class ViewLogoScreen extends Component {
                                         <dl>
                                             <dt>Text:</dt>
                                             <dd>{data.logo.text}</dd>
+                                            <dt>Texts:</dt>
+                                            <dd>{data.logo.texts}</dd>
                                             <dt>Color:</dt>
                                             <dd>{data.logo.color}</dd>
                                             <dt>Font Size:</dt>

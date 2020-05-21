@@ -5,6 +5,7 @@
     logos {
               _id
             text
+            texts
             color
             fontSize
             backgroundColor
@@ -25,6 +26,7 @@
         }
 	    logo(id: "5e93943599d3a5247923dfc5") {
         text
+        texts
             color
             fontSize
             backgroundColor
@@ -50,6 +52,7 @@
 mutation {
   addLogo (
     text: "Debugging Enterprises",
+    texts: [{ text: "Debugging Enterprises", color: "#ff33dd", fontSize: 44 }],
     color: "#ff33dd",
     fontSize: 44,
     backgroundColor: "#7a8a20",
@@ -69,6 +72,7 @@ mutation {
   ) {
     _id
     text
+    texts
     color
     fontSize
     backgroundColor
@@ -93,6 +97,7 @@ mutation {
 mutation {
   addLogo (
     text: "Super Debugging Enterprises",
+    texts: [{ text: "Super Debugging Enterprises", color: "#ff33dd", fontSize: 44 }],
     color: "#ff33dd",
     fontSize: 44,
     backgroundColor: "#7a8a20",
@@ -112,6 +117,7 @@ mutation {
   ) {
     _id
     text
+    texts
     color
     fontSize
     backgroundColor
@@ -139,6 +145,7 @@ mutation {
   updateLogo (
     id: "5e94bbd054727253f5abab8a",
     text: "My Very Dumb Company",
+    texts: [{ text: "My Very Dumb Company", color: "#ffeedd", fontSize: 32 }],
     color: "#ffeedd",
     fontSize: 32,
     backgroundColor: "#7a8a20",
@@ -158,6 +165,7 @@ mutation {
   ) {
     _id
     text
+    texts
     color
     fontSize
     backgroundColor
@@ -183,6 +191,7 @@ mutation {
   removeLogo (id: "5e94bbd054727253f5abab8a") {
     _id
     text
+    texts
     color
     fontSize
     backgroundColor
