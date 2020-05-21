@@ -13,6 +13,7 @@ const GET_LOGO = gql`
             texts
             color
             fontSize
+            image
             backgroundColor
             borderColor
             borderRadius
